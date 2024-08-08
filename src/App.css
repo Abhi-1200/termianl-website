@@ -1,0 +1,56 @@
+body{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: text;
+    background-color: #1a1b26;
+    font-size: 15px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    color: #a9b1d6;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+  }
+.terminal-banner-output{
+    color: #bb9af7;
+    font-size: 17px;
+}
+
+.terminal-command-output{
+    margin-left: 5px;
+}
+  
+.terminal-content {
+  padding-left: 10px;
+}
+
+.terminal-input-area {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.terminal-prompt-symbol {
+    margin-right: 5px;
+    color: #2ac3de;
+}
+
+.terminal-command-input{
+    font-family: inherit;
+    font-size: inherit;
+    font-size: inherit;
+    background: transparent;
+    border: 0px;
+    outline: none; /* no highlight on focus */
+    color: #a9b1d6;
+}
+
+.terminal-command {
+    color: #80bfc1;
+    text-shadow: 0 0 4px #80bfc1;
+  }
+
+.terminal-command-error {
+    color: rgb(255, 158, 100);;
+}

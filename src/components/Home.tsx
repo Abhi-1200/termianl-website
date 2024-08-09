@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ErrorMessage from "./ErrorMessage";
-import { getSimilarCommands, isNormalCommand, isUtilityCommand} from "../helpers/functions";
+import { downloadFile, getSimilarCommands, isNormalCommand, isUtilityCommand} from "../helpers/functions";
 import NormalCommands from "./NormalCommands";
 import History from "./History";
 import Input from "./Input";
@@ -14,6 +14,13 @@ const Home = (props : HomeProps) => {
     const [output,setOutput] = useState<(JSX.Element)[]>([]);
     const [history,setHistory] = useState<(string)[]>([]);
     const [historyPointer,setHistoryPointer] = useState(0);
+    const terminalContentRef = React.useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (terminalContentRef.current) {
+            terminalContentRef.current.scrollIntoView();
+        }
+    },[output])
     
     const processCommand : (input : string) => void = (input) => {
         const recordedCommand = (
@@ -38,8 +45,8 @@ const Home = (props : HomeProps) => {
                     setOutput([]);
                     break;
                 case "cv":
-                    setOutput([...output,recordedCommand]);
-                    //downlaod file
+                    setOutput([...output,recordedCommand, <div className="terminal-command-output">Downloading the cv ...</div>]);
+                    downloadFile("Abhiroop Avvari CV.pdf", "AbhiroopAvvari - Curriculum Vitae.pdf");
                     break;
                 case "gui":
                     setOutput([
@@ -107,6 +114,7 @@ const Home = (props : HomeProps) => {
                 getAutoComplete={getAutoComplete}
                 getImmediateHistory={getImmediateHistory}
                 processCommand={processCommand}
+                inputRef = {terminalContentRef}
                 />
             </div>
         </div>

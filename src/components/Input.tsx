@@ -5,6 +5,7 @@ type InputAreaProps = {
     getAutoComplete : (input : string) => string;
     processCommand : (input : string) => void;
     getImmediateHistory : (dir : "up" | "down") => string;
+    inputRef:React.RefObject<HTMLInputElement>;
 }
 
 const Input = (props : InputAreaProps) => {
@@ -47,6 +48,8 @@ const Input = (props : InputAreaProps) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             autoFocus
+            autoComplete="off"
+            ref={props.inputRef}
             />
         </div>
     )

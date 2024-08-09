@@ -21,6 +21,23 @@ const getYear = () => {
     return new Date().getFullYear();
 }
 
+const getAge = (birthDate: Date) => {
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
 
-export {normalCommands, utilityCommands, isNormalCommand, isUtilityCommand, getSimilarCommands , getYear}
+  const downloadFile = (uri: string, downloadName: string) => {
+    const link = document.createElement("a");
+    link.download = downloadName;
+    link.href = uri;
+    link.click();
+    link.remove();
+  };
+
+export {normalCommands, utilityCommands, isNormalCommand, isUtilityCommand, getSimilarCommands , getYear, getAge, downloadFile}
 export type {NormalCommandsType, UtilityCommandsType}

@@ -104,3 +104,7 @@
     background-color: var(--accent-command);
     color: var(--primary-bg);
   }
+
+  .terminal-welcome{
+    margin-bottom: 5px;
+  }

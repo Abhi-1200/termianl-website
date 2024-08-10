@@ -5,6 +5,7 @@ import NormalCommands from "./NormalCommands";
 import History from "./History";
 import Input from "./Input";
 import Output from "./Output";
+import WelcomeText from "./Welcome";
 
 type HomeProps = {
     terminalPromptSymbol: string;
@@ -14,7 +15,7 @@ const Home = (props : HomeProps) => {
     const [output,setOutput] = useState<(JSX.Element)[]>([]);
     const [history,setHistory] = useState<(string)[]>([]);
     const [historyPointer,setHistoryPointer] = useState(0);
-    const terminalContentRef = React.useRef<HTMLInputElement>(null);
+    const terminalContentRef = React.useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (terminalContentRef.current) {
@@ -108,6 +109,7 @@ const Home = (props : HomeProps) => {
         <div className="terminal-container" tabIndex={-1}>
             <div className="terminal-content">
                 <NormalCommands command="banner" />
+                <WelcomeText terminalContentRef={terminalContentRef}/>
                 <Output outputs={output}/>
                 <Input 
                 terminalPromptSymbol={props.terminalPromptSymbol}

@@ -57,8 +57,8 @@ const skills = <>
 </>
 
 const socials = <>
-<span>linkedIn             </span><a className="terminal-social-link" href="">linkedin/abhiroop1200</a><br />
-<span>github               </span><a className="terminal-social-link" href="">github/Abhi-1200</a><br />
+<span>linkedIn             </span><a className="terminal-social-link" href="https://www.linkedin.com/in/abhiroop1200/">linkedin/abhiroop1200</a><br />
+<span>github               </span><a className="terminal-social-link" href="https://github.com/Abhi-1200">github/Abhi-1200</a><br />
 </>
 
 const education = <>

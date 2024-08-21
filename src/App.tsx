@@ -6,6 +6,11 @@ function App() {
   return (
     <>
       <Home terminalPromptSymbol="visitor@a-squared.com:~$"/>
+
+
+
+
+      
     </>
   )
 }
